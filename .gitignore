@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Cryptography/v15
+/Cryptography/bin/Debug
+/CustomCryptographyUtility/bin/Debug/netstandard2.0
+/Cryptography/obj/Debug
+/CustomCryptographyUtility/obj
