@@ -183,11 +183,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Users\\ScatMan\\Documents\\KPI\\6 semestr\\Tarnavskiy\\Labs\\Cryptography\\CustomCryptographyUtility\\CustomCryptographyUtility.csproj",
+      "projectUniqueName": "d:\\Users\\ScatMan\\Documents\\GitHub\\Cryptography\\CustomCryptographyUtility\\CustomCryptographyUtility.csproj",
       "projectName": "CustomCryptographyUtility",
-      "projectPath": "d:\\Users\\ScatMan\\Documents\\KPI\\6 semestr\\Tarnavskiy\\Labs\\Cryptography\\CustomCryptographyUtility\\CustomCryptographyUtility.csproj",
+      "projectPath": "d:\\Users\\ScatMan\\Documents\\GitHub\\Cryptography\\CustomCryptographyUtility\\CustomCryptographyUtility.csproj",
       "packagesPath": "C:\\Users\\ScatMan\\.nuget\\packages\\",
-      "outputPath": "d:\\Users\\ScatMan\\Documents\\KPI\\6 semestr\\Tarnavskiy\\Labs\\Cryptography\\CustomCryptographyUtility\\obj\\",
+      "outputPath": "d:\\Users\\ScatMan\\Documents\\GitHub\\Cryptography\\CustomCryptographyUtility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
