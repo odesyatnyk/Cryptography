@@ -28,7 +28,7 @@ namespace Cryptography
             InitializeComponent();
             textBoxDecryptedText.TextChanged += TextBoxDecryptedText_TextChanged;
             textBoxEncryptedText.TextChanged += TextBoxEncryptedText_TextChanged;
-            textBoxKey.TextChanged += TextBoxKey_TextChanged;
+            numericKey.TextChanged += numericKey_TextChanged;
             comboBoxLanguage.SelectedIndexChanged += ComboBoxLanguage_SelectedIndexChanged;
             _docToPrint.PrintPage += _docToPrint_PrintPage;
             radioButtonCaesar.Checked = true;
@@ -43,9 +43,9 @@ namespace Cryptography
         {
             _encryptedText = textBoxEncryptedText.Text;
         }
-        private void TextBoxKey_TextChanged(object sender, EventArgs e)
+        private void numericKey_TextChanged(object sender, EventArgs e)
         {
-            Int32.TryParse(textBoxKey.Text, out _key);
+            Int32.TryParse(numericKey.Text, out _key);
         }
         private void ComboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {

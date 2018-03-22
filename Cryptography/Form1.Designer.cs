@@ -47,7 +47,6 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.labelSelectLanguage = new System.Windows.Forms.Label();
-            this.textBoxKey = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButtonCaesar = new System.Windows.Forms.RadioButton();
             this.txt_Phrase = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@
             this.num_ALinear = new System.Windows.Forms.NumericUpDown();
             this.radio_NonLinear = new System.Windows.Forms.RadioButton();
             this.radio_Linear = new System.Windows.Forms.RadioButton();
+            this.numericKey = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gb_NonLinear.SuspendLayout();
@@ -75,6 +75,7 @@
             this.gb_Linear.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_BLinear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ALinear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKey)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -255,19 +256,12 @@
             this.labelSelectLanguage.TabIndex = 10;
             this.labelSelectLanguage.Text = "Select language:";
             // 
-            // textBoxKey
-            // 
-            this.textBoxKey.Location = new System.Drawing.Point(92, 31);
-            this.textBoxKey.Name = "textBoxKey";
-            this.textBoxKey.Size = new System.Drawing.Size(49, 20);
-            this.textBoxKey.TabIndex = 11;
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.numericKey);
             this.groupBox3.Controls.Add(this.radioButtonCaesar);
             this.groupBox3.Controls.Add(this.txt_Phrase);
             this.groupBox3.Controls.Add(this.radio_Phrase);
-            this.groupBox3.Controls.Add(this.textBoxKey);
             this.groupBox3.Controls.Add(this.gb_NonLinear);
             this.groupBox3.Controls.Add(this.gb_Linear);
             this.groupBox3.Controls.Add(this.radio_NonLinear);
@@ -441,6 +435,13 @@
             this.radio_Linear.Text = "Linear";
             this.radio_Linear.UseVisualStyleBackColor = true;
             // 
+            // numericKey
+            // 
+            this.numericKey.Location = new System.Drawing.Point(86, 32);
+            this.numericKey.Name = "numericKey";
+            this.numericKey.Size = new System.Drawing.Size(42, 20);
+            this.numericKey.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +479,7 @@
             this.gb_Linear.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_BLinear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_ALinear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,7 +506,6 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Label labelSelectLanguage;
-        private System.Windows.Forms.TextBox textBoxKey;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButtonCaesar;
         private System.Windows.Forms.TextBox txt_Phrase;
@@ -523,6 +524,7 @@
         private System.Windows.Forms.NumericUpDown num_ALinear;
         private System.Windows.Forms.RadioButton radio_NonLinear;
         private System.Windows.Forms.RadioButton radio_Linear;
+        private System.Windows.Forms.NumericUpDown numericKey;
     }
 }
 
