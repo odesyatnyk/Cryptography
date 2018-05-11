@@ -7,3 +7,5 @@
 /CustomCryptographyUtility/bin/Debug/netstandard2.0
 /Cryptography/obj/Debug
 /CustomCryptographyUtility/obj
+/.vs
+/Cryptography/obj/Release

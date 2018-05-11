@@ -2,7 +2,8 @@
 {
     public enum KeyType
     {
-        Linear = 0,
+        Caesar = 0,
+        Linear,
         NotLinear,
         Phrase
     }
