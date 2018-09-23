@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CustomCryptographyUtility.CaesarCipher">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>CaesarCipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.Cipher">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAEAAAAAAAAAAAAAAIAAAAAAgAgA=</HashCode>
+      <FileName>Cipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.DESCipher">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAQBAAAAAAAAAAAAAAAIAgAAAAAAAA=</HashCode>
+      <FileName>DESCipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.GammaCipher">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>GammaCipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.LitCipher">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAQAAAQAAAEAAAAAEAAAAAAIABgAAAAAAA=</HashCode>
+      <FileName>LitCipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.TrithemiusCipher">
+    <Position X="13" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAIQAAoAEAAAA=</HashCode>
+      <FileName>TrithemiusCipher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.Exceptions.InvalidInputCharacterException">
+    <Position X="6" Y="7" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InvalidInputCharacterException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomCryptographyUtility.Exceptions.WrongKeyValueException">
+    <Position X="11.25" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\WrongKeyValueException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CustomCryptographyUtility.KeyType">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgQAAAAAAAIFAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Enums\KeyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

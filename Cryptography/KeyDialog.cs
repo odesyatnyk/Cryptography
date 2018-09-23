@@ -20,7 +20,12 @@ namespace Cryptography
         public int _bNonLinear;
         public int _cNonLinear;
         public string _txt_Phrase;
+        public int _keyGamma;
         public KeyType _keyType;
+        public string _lit;
+        public string _keyDes;
+        public string _iv;
+        public string _rsaKey;
 
         public KeyDialog()
         {
@@ -40,7 +45,12 @@ namespace Cryptography
             _bNonLinear = parentFrom._bNonLinear;
             _cNonLinear = parentFrom._cNonLinear;
             _txt_Phrase = parentFrom._txt_Phrase;
+            _keyGamma = parentFrom._keyGamma;
             _keyType = parentFrom._keyType;
+            _lit = parentFrom._lit;
+            _keyDes = parentFrom._keyDes;
+            _iv = parentFrom._iv;
+            _rsaKey = parentFrom._rsaKey;
             switch (_keyType)
             {
                 case KeyType.Caesar:
@@ -49,6 +59,10 @@ namespace Cryptography
                     gb_Linear.Enabled = false;
                     gb_NonLinear.Enabled = false;
                     txt_Phrase.Enabled = false;
+                    textBoxLit.Enabled = false;
+                    textBoxRsaKey.Enabled = false;
+                    radioButtonDES.Checked = false;
+                    numericGammaKey.Enabled = false;
                     numericKey.Value = _caesarKey;
                     break;
                 case KeyType.Linear:
@@ -57,6 +71,10 @@ namespace Cryptography
                     gb_Linear.Enabled = true;
                     gb_NonLinear.Enabled = false;
                     txt_Phrase.Enabled = false;
+                    textBoxLit.Enabled = false;
+                    radioButtonDES.Checked = false;
+                    numericGammaKey.Enabled = false;
+                    textBoxRsaKey.Enabled = false;
                     num_ALinear.Value = _aLinear;
                     num_BLinear.Value = _bLinear;
                     break;
@@ -66,6 +84,10 @@ namespace Cryptography
                     gb_Linear.Enabled = false;
                     gb_NonLinear.Enabled = true;
                     txt_Phrase.Enabled = false;
+                    textBoxLit.Enabled = false;
+                    radioButtonDES.Checked = false;
+                    textBoxRsaKey.Enabled = false;
+                    numericGammaKey.Enabled = false;
                     num_ANonLinear.Value = _aNonLinear;
                     num_BNonLinear.Value = _bNonLinear;
                     num_CNonLinear.Value = _cNonLinear;
@@ -76,7 +98,60 @@ namespace Cryptography
                     gb_Linear.Enabled = false;
                     gb_NonLinear.Enabled = false;
                     txt_Phrase.Enabled = true;
+                    textBoxLit.Enabled = false;
+                    radioButtonDES.Checked = false;
+                    textBoxRsaKey.Enabled = false;
+                    numericGammaKey.Enabled = false;
                     txt_Phrase.Text = _txt_Phrase;
+                    break;
+                case KeyType.Gamma:
+                    radioGamma.Checked = true;
+                    numericKey.Enabled = false;
+                    gb_Linear.Enabled = false;
+                    gb_NonLinear.Enabled = false;
+                    txt_Phrase.Enabled = false;
+                    textBoxLit.Enabled = false;
+                    radioButtonDES.Checked = false;
+                    textBoxRsaKey.Enabled = false;
+                    numericGammaKey.Enabled = true;
+                    numericGammaKey.Value= _keyGamma;
+                    break;
+                case KeyType.Lit:
+                    radioGamma.Checked = false;
+                    numericKey.Enabled = false;
+                    gb_Linear.Enabled = false;
+                    gb_NonLinear.Enabled = false;
+                    txt_Phrase.Enabled = false;
+                    radioLitCipher.Checked = true;
+                    textBoxLit.Enabled = true;
+                    radioButtonDES.Checked = false;
+                    textBoxRsaKey.Enabled = false;
+                    textBoxLit.Text = _lit;
+                    break;
+                case KeyType.Des:
+                    radioGamma.Checked = false;
+                    numericKey.Enabled = false;
+                    gb_Linear.Enabled = false;
+                    gb_NonLinear.Enabled = false;
+                    txt_Phrase.Enabled = false;
+                    radioLitCipher.Checked = false;
+                    radioButtonDES.Checked = true;
+                    textBoxDesKey.Text = _keyDes;
+                    textBoxDesIv.Text = _iv;
+                    textBoxRsaKey.Enabled = false;
+
+                    break;
+                case KeyType.Rsa:
+                    radioGamma.Checked = false;
+                    numericKey.Enabled = false;
+                    gb_Linear.Enabled = false;
+                    gb_NonLinear.Enabled = false;
+                    txt_Phrase.Enabled = false;
+                    radioLitCipher.Checked = false;
+                    radioButtonDES.Checked = false;
+                    radioRsa.Checked = true;
+                    textBoxRsaKey.Enabled = true;
+                    textBoxRsaKey.Text = _rsaKey;
                     break;
                 default:
                     break;
@@ -92,11 +167,40 @@ namespace Cryptography
             num_BNonLinear.TextChanged += Num_BNonLinear_TextChanged;
             num_CNonLinear.TextChanged += Num_CNonLinear_TextChanged;
             txt_Phrase.TextChanged += Txt_Phrase_TextChanged;
+            numericGammaKey.TextChanged += NumericGammaKey_TextChanged;
+            textBoxLit.TextChanged += TextBoxLit_TextChanged;
+            textBoxDesKey.TextChanged += TextBoxDesKey_TextChanged;
+            textBoxDesIv.TextChanged += TextBoxDesIv_TextChanged;
+            textBoxRsaKey.TextChanged += TextBoxRsaKey_TextChanged;
 
             radioButtonCaesar.CheckedChanged += RadioButton_CheckedChanged;
             radio_Linear.CheckedChanged += RadioButton_CheckedChanged;
             radio_NonLinear.CheckedChanged += RadioButton_CheckedChanged;
             radio_Phrase.CheckedChanged += RadioButton_CheckedChanged;
+            radioGamma.CheckedChanged += RadioButton_CheckedChanged;
+            radioLitCipher.CheckedChanged += RadioButton_CheckedChanged;
+            radioButtonDES.CheckedChanged += RadioButton_CheckedChanged;
+            radioRsa.CheckedChanged += RadioButton_CheckedChanged;
+        }
+
+        private void TextBoxRsaKey_TextChanged(object sender, EventArgs e)
+        {
+            _rsaKey = textBoxRsaKey.Text;
+        }
+
+        private void TextBoxDesIv_TextChanged(object sender, EventArgs e)
+        {
+            _iv = textBoxDesIv.Text;
+        }
+
+        private void TextBoxDesKey_TextChanged(object sender, EventArgs e)
+        {
+            _keyDes = textBoxDesKey.Text;
+        }
+
+        private void TextBoxLit_TextChanged(object sender, EventArgs e)
+        {
+            _lit = textBoxLit.Text;
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
@@ -107,6 +211,10 @@ namespace Cryptography
                 gb_Linear.Enabled = false;
                 gb_NonLinear.Enabled = false;
                 txt_Phrase.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                numericGammaKey.Enabled = false;
+                textBoxRsaKey.Enabled = false;
                 _keyType = KeyType.Caesar;
             }
             else if (radio_Linear.Checked)
@@ -115,6 +223,10 @@ namespace Cryptography
                 gb_Linear.Enabled = true;
                 gb_NonLinear.Enabled = false;
                 txt_Phrase.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                textBoxRsaKey.Enabled = false;
+                numericGammaKey.Enabled = false;
                 _keyType = KeyType.Linear;
             }
             else if (radio_NonLinear.Checked)
@@ -123,6 +235,10 @@ namespace Cryptography
                 gb_Linear.Enabled = false;
                 gb_NonLinear.Enabled = true;
                 txt_Phrase.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                textBoxRsaKey.Enabled = false;
+                numericGammaKey.Enabled = false;
                 _keyType = KeyType.NotLinear;
             }
             else if (radio_Phrase.Checked)
@@ -131,7 +247,59 @@ namespace Cryptography
                 gb_Linear.Enabled = false;
                 gb_NonLinear.Enabled = false;
                 txt_Phrase.Enabled = true;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                textBoxRsaKey.Enabled = false;
+                numericGammaKey.Enabled = false;
                 _keyType = KeyType.Phrase;
+            }
+            else if (radioGamma.Checked)
+            {
+                numericKey.Enabled = false;
+                gb_Linear.Enabled = false;
+                gb_NonLinear.Enabled = false;
+                txt_Phrase.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                textBoxRsaKey.Enabled = false;
+                numericGammaKey.Enabled = true;
+                _keyType = KeyType.Gamma;
+            }
+            else if (radioLitCipher.Checked)
+            {
+                numericKey.Enabled = false;
+                gb_Linear.Enabled = false;
+                gb_NonLinear.Enabled = false;
+                txt_Phrase.Enabled = false;
+                numericGammaKey.Enabled = false;
+                textBoxLit.Enabled = true;
+                textBoxRsaKey.Enabled = false;
+                groupBoxDes.Enabled = false;
+                _keyType = KeyType.Lit;
+            }
+            else if (radioButtonDES.Checked)
+            {
+                numericKey.Enabled = false;
+                gb_Linear.Enabled = false;
+                gb_NonLinear.Enabled = false;
+                txt_Phrase.Enabled = false;
+                numericGammaKey.Enabled = false;
+                textBoxRsaKey.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = true;
+                _keyType = KeyType.Des;
+            }
+            else if (radioRsa.Checked)
+            {
+                numericKey.Enabled = false;
+                gb_Linear.Enabled = false;
+                gb_NonLinear.Enabled = false;
+                txt_Phrase.Enabled = false;
+                numericGammaKey.Enabled = false;
+                textBoxLit.Enabled = false;
+                groupBoxDes.Enabled = false;
+                textBoxRsaKey.Enabled = true;
+                _keyType = KeyType.Rsa;
             }
         }
 
@@ -168,6 +336,11 @@ namespace Cryptography
         private void Txt_Phrase_TextChanged(object sender, EventArgs e)
         {
             _txt_Phrase = txt_Phrase.Text;
+        }
+
+        private void NumericGammaKey_TextChanged(object sender, EventArgs e)
+        {
+            Int32.TryParse(numericGammaKey.Text, out _keyGamma);
         }
 
         private void button_Confirm_Click(object sender, EventArgs e)

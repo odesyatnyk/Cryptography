@@ -26,8 +26,14 @@ namespace Cryptography
         public int _bNonLinear;
         public int _cNonLinear;
         public string _txt_Phrase;
+        public int _keyGamma;
         public KeyType _keyType;
         private PrintDocument _docToPrint = new PrintDocument();
+        public string _lit;
+        public string _keyDes;
+        public string _iv;
+        public string _rsaKey;
+
         #endregion
 
         public CryptographyMainUI()
@@ -175,7 +181,12 @@ namespace Cryptography
                         _bNonLinear = form._bNonLinear;
                         _cNonLinear = form._cNonLinear;
                         _txt_Phrase = form._txt_Phrase;
+                        _keyGamma = form._keyGamma;
                         _keyType = form._keyType;
+                        _lit = form._lit;
+                        _keyDes = form._keyDes;
+                        _iv = form._iv;
+                        _rsaKey = form._rsaKey;
                     }
                 }
 
@@ -218,6 +229,34 @@ namespace Cryptography
                         };
                         _text = trithemiusCipherPhrase.Crypt(_text);
                         textBoxText.Text = _text;
+                        break;
+                    case KeyType.Gamma:
+                        GammaCipher gammaCipher = new GammaCipher
+                        {
+                            Key = _keyGamma
+                        };
+                        _text = gammaCipher.Crypt(_text);
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Lit:
+                        LitCipher cipher = new LitCipher
+                        {
+                            key = _lit.ToLower().Split(new String[] { "\r\n" }, StringSplitOptions.None)
+                        };
+                        _text = cipher.Crypt(_text.ToLower());
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Des:
+                        DESCipher des = new DESCipher(_keyDes, _iv);
+                        _text = des.Crypt(_text);
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Rsa:
+                        RsaCipher rsa = new RsaCipher();
+                        rsa.Key = _rsaKey;
+                        _text = rsa.Encrypt(_text, out string key);
+                        textBoxText.Text = _text;
+                        MessageBox.Show(key);
                         break;
                     default:
                         break;
@@ -265,7 +304,13 @@ namespace Cryptography
                         _aNonLinear = form._aNonLinear;
                         _bNonLinear = form._bNonLinear;
                         _cNonLinear = form._cNonLinear;
+                        _keyGamma = form._keyGamma;
                         _txt_Phrase = form._txt_Phrase;
+                        _lit = form._lit;
+                        _keyDes = form._keyDes;
+                        _iv = form._iv;
+                        _keyType = form._keyType;
+                        _rsaKey = form._rsaKey;
                     }
                 }
 
@@ -307,6 +352,33 @@ namespace Cryptography
                             Phrase = _txt_Phrase
                         };
                         _text = trithemiusCipherPhrase.DeCrypt(_text);
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Gamma:
+                        GammaCipher gammaCipher = new GammaCipher
+                        {
+                            Key = _keyGamma
+                        };
+                        _text = gammaCipher.DeCrypt(_text);
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Lit:
+                        LitCipher cipher = new LitCipher
+                        {
+                            key = _lit.ToLower().Split(new String[] { "\r\n" }, StringSplitOptions.None)
+                        };
+                        _text = cipher.DeCrypt(_text.ToLower());
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Des:
+                        DESCipher des = new DESCipher(_keyDes, _iv);
+                        _text = des.DeCrypt(_text);
+                        textBoxText.Text = _text;
+                        break;
+                    case KeyType.Rsa:
+                        RsaCipher rsa = new RsaCipher();
+                        rsa.Key = _rsaKey;
+                        _text = rsa.Decrypt(_text);
                         textBoxText.Text = _text;
                         break;
                     default:

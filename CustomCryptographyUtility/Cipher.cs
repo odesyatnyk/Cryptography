@@ -18,5 +18,7 @@ namespace CustomCryptographyUtility
                     throw new InvalidInputCharacterException("Some character is missing inside the alphabet. Are you selected a wrong alphabet?");
             }
         }
+        public abstract string Crypt(string text);
+        public abstract string DeCrypt(string text);
     }
 }

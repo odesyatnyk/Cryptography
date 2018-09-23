@@ -6,7 +6,7 @@ namespace CustomCryptographyUtility
 {
     public class CaesarCipher : Cipher
     {
-        public string Crypt(string text)
+        public override string Crypt(string text)
         {
             CheckInput(text);
             string result = string.Empty;
@@ -16,7 +16,7 @@ namespace CustomCryptographyUtility
             }
             return result;
         }
-        public string DeCrypt(string text)
+        public override string DeCrypt(string text)
         {
             CheckInput(text);
             string result = string.Empty;

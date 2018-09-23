@@ -5,6 +5,10 @@
         Caesar = 0,
         Linear,
         NotLinear,
-        Phrase
+        Phrase,
+        Gamma,
+        Lit,
+        Des,
+        Rsa
     }
 }
